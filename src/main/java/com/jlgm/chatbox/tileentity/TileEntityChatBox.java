@@ -61,12 +61,28 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
         return this.powered;
     }
     
+    public String getMessage(){
+    	return this.message;
+    }
+    
+    public void setMessage(String par1String){
+    	this.message = par1String;
+    }
+    
+    public int getRadius(){
+    	return this.radius;
+    }
+    
+    public void setRadius(int par1){
+    	this.radius = par1;
+    }
+    
     /**
      * Get the name of this object. For players this returns their username
      */
     public String getName()
     {
-        return this.hasCustomName() ? this.customName : "container.chest";
+        return this.hasCustomName() ? this.customName : "container.chatbox";
     }
 
     /**

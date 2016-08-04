@@ -37,7 +37,7 @@ public class BlockChatBlock extends BlockContainer{
 		if(worldIn.isRemote){
 			playerIn.openGui(ChatBoxMain.instance, ChatBoxGuiHandler.GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
 		}
-        return false;
+        return true;
     }
 
     /**
