@@ -1,3 +1,5 @@
+tile.chatBox.name=Chat Box
+
 container.chatbox=Chat Box
 container.chatbox.message=Message
 container.chatbox.radius=Radius

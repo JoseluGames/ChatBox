@@ -30,6 +30,7 @@ public class BlockChatBlock extends BlockContainer{
 
 	public BlockChatBlock(Material materialIn) {
 		super(materialIn);
+		this.setHarvestLevel("pickaxe", 1);
 	}
 	
 	@Override

@@ -3,6 +3,7 @@ package com.jlgm.chatbox.block;
 import com.jlgm.chatbox.lib.ChatBoxConstants;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
@@ -23,12 +24,12 @@ public class ChatBoxBlock {
 	
 	public static void initialiseBlock(){
 		
-		chatBlock_Block = new BlockChatBlock(Material.ROCK).setUnlocalizedName("chatBlock").setHardness(0.7F).setResistance(0.5F).setCreativeTab(CreativeTabs.REDSTONE);
+		chatBlock_Block = new BlockChatBlock(Material.ROCK).setUnlocalizedName("chatBox").setHardness(2.0F).setResistance(10.0F).setCreativeTab(CreativeTabs.REDSTONE);
 		chatBlock_ItemBlock = new ItemBlock(chatBlock_Block);
 	}
 	
 	public static void registerBlock(){
-		GameRegistry.register(chatBlock_Block.setRegistryName("chatBlock"));
+		GameRegistry.register(chatBlock_Block.setRegistryName("chatBox"));
 		GameRegistry.register(chatBlock_ItemBlock.setRegistryName(chatBlock_Block.getRegistryName()));
 	}
 	
@@ -36,7 +37,7 @@ public class ChatBoxBlock {
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 		
 		renderItem.getItemModelMesher().register(chatBlock_ItemBlock, 0,
-				new ModelResourceLocation(ChatBoxConstants.MODID + ":" + "chatBlock", "inventory"));
+				new ModelResourceLocation(ChatBoxConstants.MODID + ":" + "chatBox", "inventory"));
 		
 	}
 }

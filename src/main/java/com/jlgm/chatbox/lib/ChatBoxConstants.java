@@ -5,8 +5,16 @@ public class ChatBoxConstants {
 	public static final String MODID = "jlgm_chatbox";
 	//The public name
 	public static final String NAME = "Chat Box";
+	
+	//Version parts ( https://mcforge.readthedocs.io/en/latest/conventions/versioning/ )
+	public static final String MCVERSION = "1.10.2";
+	public static final String MAJOR = "0";
+	public static final String MINOR = "1";
+	public static final String PATCH = "0";
+	public static final String RELEASETYPE = "";
+	
 	//The version of the mod
-	public static final String VERSION = "0.1a";
+	public static final String VERSION = MCVERSION + "-" + MAJOR + "." + MINOR + "." + PATCH + RELEASETYPE;
 	//The Minecraft version this mod is focused to work with
 	public static final String ACCEPTEDMINECRAFTVERSIONS = "[1.10.2]";
 	
