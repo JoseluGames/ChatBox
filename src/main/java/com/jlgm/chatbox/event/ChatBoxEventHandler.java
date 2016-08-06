@@ -13,7 +13,7 @@ public class ChatBoxEventHandler {
 	@SubscribeEvent(priority = EventPriority.NORMAL, receiveCanceled = true)
 	public void onPlayerTickEvent(PlayerTickEvent event){
 		if(!ChatBoxMain.haveWarnedVersionOutOfDate && event.player.worldObj.isRemote && !ChatBoxMain.versionChecker.isLatestVersion()){
-			ClickEvent versionCheckChatClickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.google.com");
+			ClickEvent versionCheckChatClickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://minecraft.curseforge.com/projects/chatbox");
 			Style clickableChatStyle = new Style().setClickEvent(versionCheckChatClickEvent);
 			TextComponentString versionWarningChatComponent = new TextComponentString("Your ChatBox is no the latest version! Click here to update");
 			versionWarningChatComponent.setStyle(clickableChatStyle);

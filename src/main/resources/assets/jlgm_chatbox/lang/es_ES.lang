@@ -1,0 +1,5 @@
+tile.chatBox.name=Caja de Texto
+
+container.chatbox=Caja de Texto
+container.chatbox.message=Mensaje
+container.chatbox.radius=Radio
