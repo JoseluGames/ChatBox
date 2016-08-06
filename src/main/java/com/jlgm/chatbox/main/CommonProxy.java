@@ -2,11 +2,13 @@ package com.jlgm.chatbox.main;
 
 import com.jlgm.chatbox.block.ChatBoxBlock;
 import com.jlgm.chatbox.client.gui.ChatBoxGuiHandler;
+import com.jlgm.chatbox.event.ChatBoxEventHandler;
 import com.jlgm.chatbox.lib.ChatBoxConfigStorage;
 import com.jlgm.chatbox.network.ChatBoxPacketHandler;
 import com.jlgm.chatbox.tileentity.ChatBoxTileEntity;
 
 import net.minecraft.init.Items;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -35,7 +37,7 @@ public class CommonProxy {
 		ChatBoxBlock.registerBlock();
 		NetworkRegistry.INSTANCE.registerGuiHandler(ChatBoxMain.instance, new ChatBoxGuiHandler());
 		GameRegistry.addRecipe(new ShapedOreRecipe(ChatBoxBlock.chatBlock_Block, "CIC", "IRI", "CIC", 'C', "cobblestone", 'R', "dustRedstone", 'I', "ingotIron"));
-		//GameRegistry.addShapedRecipe(new ItemStack(ChatBoxBlock.chatBlock_Block));
+		MinecraftForge.EVENT_BUS.register(new ChatBoxEventHandler());
 	}
 	
 	public void postInit(FMLPostInitializationEvent postInitEvent){

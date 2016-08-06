@@ -1,7 +1,7 @@
 package com.jlgm.chatbox.main;
 
 import com.jlgm.chatbox.block.ChatBoxBlock;
-import com.jlgm.chatbox.tileentity.ChatBoxTileEntity;
+import com.jlgm.chatbox.lib.ChatBoxVersionChecker;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -23,5 +23,8 @@ public class ClientProxy extends CommonProxy{
 	@Override
 	public void postInit(FMLPostInitializationEvent postInitEvent){
 		super.postInit(postInitEvent);
+		ChatBoxMain.versionChecker = new ChatBoxVersionChecker();
+		Thread versionCheckThread = new Thread(ChatBoxMain.versionChecker, "Version check");
+		versionCheckThread.start();
 	}
 }
