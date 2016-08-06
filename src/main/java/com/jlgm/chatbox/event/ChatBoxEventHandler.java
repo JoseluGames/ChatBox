@@ -17,6 +17,7 @@ public class ChatBoxEventHandler {
 			Style clickableChatStyle = new Style().setClickEvent(versionCheckChatClickEvent);
 			TextComponentString versionWarningChatComponent = new TextComponentString("Your ChatBox is no the latest version! Click here to update");
 			versionWarningChatComponent.setStyle(clickableChatStyle);
+			event.player.addChatMessage(versionWarningChatComponent);
 			ChatBoxMain.haveWarnedVersionOutOfDate = true;
 		}
 	}

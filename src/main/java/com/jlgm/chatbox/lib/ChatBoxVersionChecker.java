@@ -30,9 +30,7 @@ public class ChatBoxVersionChecker implements Runnable{
 		}finally{
 			IOUtils.closeQuietly(in);
 		}
-		System.out.println("Latest mod version = " + latestVersion);
 		isLatestVersion = ChatBoxConstants.VERSION.equals(latestVersion);
-		System.out.println("Are you running latest version = " + isLatestVersion);
 	}
 	
 	public boolean isLatestVersion(){

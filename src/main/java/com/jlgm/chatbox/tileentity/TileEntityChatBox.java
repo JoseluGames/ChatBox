@@ -30,7 +30,7 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
 	private boolean powered;
 	
 	public TileEntityChatBox(){
-		this.message = "Apetecan";
+		this.message = "Hello there!";
 		this.radius = 10;
 	}
 	
