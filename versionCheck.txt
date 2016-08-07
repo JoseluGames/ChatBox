@@ -1,3 +1,5 @@
+1.10.2-0.3.0
+Add tips to the GUI
 1.10.2-0.2.0
 Changed texture and model for the Chat Box
 1.10.2-0.1.1

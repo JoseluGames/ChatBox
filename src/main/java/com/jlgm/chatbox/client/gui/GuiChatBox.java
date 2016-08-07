@@ -6,6 +6,7 @@ import org.lwjgl.input.Keyboard;
 
 import com.jlgm.chatbox.lib.ChatBoxConfigStorage;
 import com.jlgm.chatbox.lib.ChatBoxConstants;
+import com.jlgm.chatbox.lib.ChatBoxTips;
 import com.jlgm.chatbox.main.ChatBoxMain;
 import com.jlgm.chatbox.network.ChatBoxMessage;
 import com.jlgm.chatbox.network.ChatBoxPacketHandler;
@@ -17,28 +18,35 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.IWorldNameable;
+import scala.util.Random;
 
 public class GuiChatBox extends GuiScreen{
 
     private GuiTextField messageTextField;
     private GuiTextField radiusTextField;
 	private GuiButton doneButton;
+	private GuiButton cancelButton;
+	private GuiButton nextTipButton;
 	private static ResourceLocation texture;
 	private final TileEntityChatBox tile;
+	private int currentTip;
 	
 	public GuiChatBox(TileEntityChatBox chatBox){
 		texture = new ResourceLocation(ChatBoxConstants.MODID + ":" + "textures/gui/test.png");
 		tile = chatBox;
+		Random rand = new Random();
+		currentTip = rand.nextInt(ChatBoxTips.tips.length - 1);
 	}
 	
 	@Override
 	public void initGui(){
 		this.buttonList.clear();
 		Keyboard.enableRepeatEvents(true);
-		this.buttonList.add(this.doneButton = new GuiButton(0, this.width/2 - 200/2, (this.height/2 + 166/2) - 28, "Done"));
-        this.messageTextField = new GuiTextField(1, this.fontRendererObj, this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 30, 232, 20);
+		this.buttonList.add(this.doneButton = new GuiButton(0, this.width/2 - 248/2 + 8, (this.height/2 + 166/2) - 28, 60, 20, new TextComponentString(I18n.format("gui.done")).getUnformattedText()));
+		this.buttonList.add(this.cancelButton = new GuiButton(1, (this.width/2 + 248/2) - 68, (this.height/2 + 166/2) - 28, 60, 20, new TextComponentString(I18n.format("gui.cancel")).getUnformattedText()));
+		this.buttonList.add(this.nextTipButton = new GuiButton(2, this.width/2 - 248/2 + 76, (this.height/2 + 166/2) - 28, ((this.width/2 + 248/2) - 76) - (this.width/2 - 248/2 + 76), 20, new TextComponentString(I18n.format("container.chatbox.nexttip")).getUnformattedText()));
+        
+		this.messageTextField = new GuiTextField(1, this.fontRendererObj, this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 30, 232, 20);
         this.messageTextField.setMaxStringLength(100);
         this.messageTextField.setEnableBackgroundDrawing(true);
         this.messageTextField.setFocused(true);
@@ -70,6 +78,7 @@ public class GuiChatBox extends GuiScreen{
 		this.fontRendererObj.drawString(new TextComponentString(I18n.format("container.chatbox.message")).getUnformattedText()+ ":", this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 20, 0x404040);
 		this.fontRendererObj.drawString(new TextComponentString(I18n.format("container.chatbox.radius")).getUnformattedText() + ":", this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 54, 0x404040);
 		this.fontRendererObj.drawString(configStorage.minRadius + " - " + configStorage.maxRadius, this.width/2 - 248/2 + 62, this.height/2 - 166/2 + 72, 0xA0A0A0);
+		this.fontRendererObj.drawSplitString(new TextComponentString(I18n.format(ChatBoxTips.tips[currentTip])).getUnformattedText(), this.width/2 - 248/2 + 8,  this.height/2 - 166/2 + 94, 232, 0xA0A0A0);
 		this.messageTextField.drawTextBox();
 		this.radiusTextField.drawTextBox();
 		super.drawScreen(mouseX, mouseY, partialTicks);
@@ -108,6 +117,16 @@ public class GuiChatBox extends GuiScreen{
 			this.mc.displayGuiScreen(null);
 			if(this.mc.currentScreen == null){
 				this.mc.setIngameFocus();
+			}
+		} else if(button == this.cancelButton){
+			this.mc.displayGuiScreen(null);
+			if(this.mc.currentScreen == null){
+				this.mc.setIngameFocus();
+			}
+		} else if(button == this.nextTipButton){
+			currentTip++;
+			if(currentTip >= ChatBoxTips.tips.length){
+				currentTip = 0;
 			}
 		}
 	}
