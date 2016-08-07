@@ -94,7 +94,6 @@ public class GuiChatBox extends GuiScreen{
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException{
 		if(button == this.doneButton){
-			ChatBoxPacketHandler.INSTANCE.sendToServer(new ChatBoxMessage(this.messageTextField.getText(), Integer.valueOf(this.radiusTextField.getText()), tile.getPos()));
 			tile.setMessage(this.messageTextField.getText());
 			int radius = Integer.valueOf(this.radiusTextField.getText());
 			ChatBoxConfigStorage configStorage = ChatBoxMain.instance.configStorage;
@@ -105,6 +104,7 @@ public class GuiChatBox extends GuiScreen{
 				radius = configStorage.maxRadius;
 			}
 			tile.setRadius(radius);
+			ChatBoxPacketHandler.INSTANCE.sendToServer(new ChatBoxMessage(this.messageTextField.getText(), Integer.valueOf(this.radiusTextField.getText()), tile.getPos()));
 			this.mc.displayGuiScreen(null);
 			if(this.mc.currentScreen == null){
 				this.mc.setIngameFocus();

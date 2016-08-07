@@ -2,6 +2,7 @@ package com.jlgm.chatbox.network;
 
 import java.nio.charset.Charset;
 
+import com.google.common.base.Charsets;
 import com.jlgm.chatbox.tileentity.TileEntityChatBox;
 
 import io.netty.buffer.ByteBuf;
@@ -23,7 +24,6 @@ public class ChatBoxMessage implements IMessage{
 		
 	}
 	
-	//What to send
 	public ChatBoxMessage(String chatMessage, int radius, BlockPos pos){
 		this.chatMessage = chatMessage;
 		this.radius = radius;
@@ -35,14 +35,14 @@ public class ChatBoxMessage implements IMessage{
 		buf.writeInt(radius);
 		buf.writeLong(pos.toLong());
 		buf.writeInt(chatMessage.getBytes().length);
-		buf.writeBytes(chatMessage.getBytes());
+		buf.writeBytes(chatMessage.getBytes(Charsets.UTF_8));
 	}
 	
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		radius = buf.readInt();
 		pos = BlockPos.fromLong(buf.readLong());
-		chatMessage = buf.readBytes(buf.readInt()).toString(Charset.forName("UTF-8"));
+		chatMessage = buf.readBytes(buf.readInt()).toString(Charsets.UTF_8);
 	}
 	
 	public static class ChatBoxMessageHandler implements IMessageHandler<ChatBoxMessage, IMessage>{
