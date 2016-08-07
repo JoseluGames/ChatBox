@@ -1,1 +1,6 @@
+1.10.2-0.2.0
+Changed texture and model for the Chat Box
+1.10.2-0.1.1
+Fix non latin scripts showing as "???"
 1.10.2-0.1.0
+First release
