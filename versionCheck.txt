@@ -1,3 +1,6 @@
+1.10.2-0.4.0-hotfix
+Fix bug getting radius out of bounds
+##
 1.10.2-0.4.0
 Add update changelog
 ##

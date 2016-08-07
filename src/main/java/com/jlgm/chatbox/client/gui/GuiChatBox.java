@@ -54,7 +54,7 @@ public class GuiChatBox extends GuiScreen{
         this.messageTextField.setText(tile.getMessage());
         
         this.radiusTextField = new GuiTextField(1, this.fontRendererObj, this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 66, 50, 20);
-        this.radiusTextField.setMaxStringLength(100);
+        this.radiusTextField.setMaxStringLength(9);
         this.radiusTextField.setEnableBackgroundDrawing(true);
         this.radiusTextField.setFocused(false);
         this.radiusTextField.setCanLoseFocus(true);

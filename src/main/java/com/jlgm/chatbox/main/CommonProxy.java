@@ -24,8 +24,8 @@ public class CommonProxy {
 		Configuration config = new Configuration(preInitEvent.getSuggestedConfigurationFile());
 		config.load();
 		configStorage.formatCode = config.getString("Chat box output format", config.CATEGORY_GENERAL, "[%1$s]: %2$s", "Write the desired format putting %1$s where you want the name of the block to be, %2$s for the message and %3$s for the radius, YOU DON'T NEED TO PUT THEM ALL, JUST THE ONES YOU WANT TO USE");
-		configStorage.minRadius = config.getInt("Chat box minimum radius", config.CATEGORY_GENERAL, 1, 1, 1000, "");
-		configStorage.maxRadius = config.getInt("Chat box maximum radius", config.CATEGORY_GENERAL, 100, 1, 1000, "");
+		configStorage.minRadius = config.getInt("Chat box minimum radius", config.CATEGORY_GENERAL, 1, 1, 999999998, "");
+		configStorage.maxRadius = config.getInt("Chat box maximum radius", config.CATEGORY_GENERAL, 100, 1, 999999999, "");
 		config.save();
 		
 		ChatBoxPacketHandler.registerMessage();
