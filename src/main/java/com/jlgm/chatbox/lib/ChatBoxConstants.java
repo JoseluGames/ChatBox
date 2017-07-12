@@ -11,7 +11,7 @@ public class ChatBoxConstants {
 	public static final String MAJOR = "0";
 	public static final String MINOR = "5";
 	public static final String PATCH = "0";
-	public static final String RELEASETYPE = "-hotfix";
+	public static final String RELEASETYPE = "";
 	
 	//The version of the mod
 	public static final String VERSION = MCVERSION + "-" + MAJOR + "." + MINOR + "." + PATCH + RELEASETYPE;
