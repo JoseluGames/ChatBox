@@ -36,7 +36,7 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent initEven){
 		ChatBoxBlock.registerBlock();
 		NetworkRegistry.INSTANCE.registerGuiHandler(ChatBoxMain.instance, new ChatBoxGuiHandler());
-		GameRegistry.addRecipe(new ShapedOreRecipe(ChatBoxBlock.chatBlock_Block, "CIC", "IRI", "CIC", 'C', "cobblestone", 'R', "dustRedstone", 'I', "ingotIron"));
+		//GameRegistry.addRecipe(new ShapedOreRecipe(ChatBoxBlock.chatBlock_Block, "CIC", "IRI", "CIC", 'C', "cobblestone", 'R', "dustRedstone", 'I', "ingotIron"));
 		MinecraftForge.EVENT_BUS.register(new ChatBoxEventHandler());
 	}
 	

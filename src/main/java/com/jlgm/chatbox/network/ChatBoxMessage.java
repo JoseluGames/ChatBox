@@ -49,7 +49,7 @@ public class ChatBoxMessage implements IMessage{
 		
 		@Override
 		public IMessage onMessage(ChatBoxMessage message, MessageContext ctx) {
-			TileEntity tile = ctx.getServerHandler().playerEntity.worldObj.getTileEntity(message.pos);
+			TileEntity tile = ctx.getServerHandler().player.world.getTileEntity(message.pos);
 			if(tile instanceof TileEntityChatBox){
 				TileEntityChatBox chatBox = (TileEntityChatBox) tile;
 				chatBox.setMessage(message.chatMessage);

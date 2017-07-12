@@ -46,14 +46,14 @@ public class GuiChatBox extends GuiScreen{
 		this.buttonList.add(this.cancelButton = new GuiButton(1, (this.width/2 + 248/2) - 68, (this.height/2 + 166/2) - 28, 60, 20, new TextComponentString(I18n.format("gui.cancel")).getUnformattedText()));
 		this.buttonList.add(this.nextTipButton = new GuiButton(2, this.width/2 - 248/2 + 76, (this.height/2 + 166/2) - 28, ((this.width/2 + 248/2) - 76) - (this.width/2 - 248/2 + 76), 20, new TextComponentString(I18n.format("container.chatbox.nexttip")).getUnformattedText()));
         
-		this.messageTextField = new GuiTextField(1, this.fontRendererObj, this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 30, 232, 20);
+		this.messageTextField = new GuiTextField(1, this.fontRenderer, this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 30, 232, 20);
         this.messageTextField.setMaxStringLength(100);
         this.messageTextField.setEnableBackgroundDrawing(true);
         this.messageTextField.setFocused(true);
         this.messageTextField.setCanLoseFocus(true);
         this.messageTextField.setText(tile.getMessage());
         
-        this.radiusTextField = new GuiTextField(1, this.fontRendererObj, this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 66, 50, 20);
+        this.radiusTextField = new GuiTextField(1, this.fontRenderer, this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 66, 50, 20);
         this.radiusTextField.setMaxStringLength(9);
         this.radiusTextField.setEnableBackgroundDrawing(true);
         this.radiusTextField.setFocused(false);
@@ -74,11 +74,11 @@ public class GuiChatBox extends GuiScreen{
 		mc.getTextureManager().bindTexture(texture);
 		ChatBoxConfigStorage configStorage = ChatBoxMain.instance.configStorage;
 		this.drawTexturedModalRect(this.width/2 - 248/2, this.height/2 - 166/2, 0, 0, 248, 166);
-		this.fontRendererObj.drawString(new TextComponentString(I18n.format(tile.getName())).getUnformattedText(), this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 8, 0x404040);
-		this.fontRendererObj.drawString(new TextComponentString(I18n.format("container.chatbox.message")).getUnformattedText()+ ":", this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 20, 0x404040);
-		this.fontRendererObj.drawString(new TextComponentString(I18n.format("container.chatbox.radius")).getUnformattedText() + ":", this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 54, 0x404040);
-		this.fontRendererObj.drawString(configStorage.minRadius + " - " + configStorage.maxRadius, this.width/2 - 248/2 + 62, this.height/2 - 166/2 + 72, 0xA0A0A0);
-		this.fontRendererObj.drawSplitString(new TextComponentString(I18n.format(ChatBoxTips.tips[currentTip])).getUnformattedText(), this.width/2 - 248/2 + 8,  this.height/2 - 166/2 + 94, 232, 0xA0A0A0);
+		this.fontRenderer.drawString(new TextComponentString(I18n.format(tile.getName())).getUnformattedText(), this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 8, 0x404040);
+		this.fontRenderer.drawString(new TextComponentString(I18n.format("container.chatbox.message")).getUnformattedText()+ ":", this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 20, 0x404040);
+		this.fontRenderer.drawString(new TextComponentString(I18n.format("container.chatbox.radius")).getUnformattedText() + ":", this.width/2 - 248/2 + 8, this.height/2 - 166/2 + 54, 0x404040);
+		this.fontRenderer.drawString(configStorage.minRadius + " - " + configStorage.maxRadius, this.width/2 - 248/2 + 62, this.height/2 - 166/2 + 72, 0xA0A0A0);
+		this.fontRenderer.drawSplitString(new TextComponentString(I18n.format(ChatBoxTips.tips[currentTip])).getUnformattedText(), this.width/2 - 248/2 + 8,  this.height/2 - 166/2 + 94, 232, 0xA0A0A0);
 		this.messageTextField.drawTextBox();
 		this.radiusTextField.drawTextBox();
 		super.drawScreen(mouseX, mouseY, partialTicks);

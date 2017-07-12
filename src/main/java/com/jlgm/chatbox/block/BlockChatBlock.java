@@ -34,7 +34,7 @@ public class BlockChatBlock extends BlockContainer{
 	}
 	
 	@Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ){
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ){
 		if(worldIn.isRemote){
 			playerIn.openGui(ChatBoxMain.instance, ChatBoxGuiHandler.GUI_ID, worldIn, pos.getX(), pos.getY(), pos.getZ());
 		}
@@ -47,7 +47,7 @@ public class BlockChatBlock extends BlockContainer{
      * block, etc.
      */
 	@Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn)
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
         if (!worldIn.isRemote)
         {

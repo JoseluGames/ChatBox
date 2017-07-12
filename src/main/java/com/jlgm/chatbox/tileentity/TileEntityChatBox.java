@@ -35,7 +35,7 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
 	}
 	
 	public boolean sendChatMessage(){
-		List list = worldObj.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.add(-radius, -radius, -radius), this.pos.add(radius + 1, radius + 1, radius + 1)));
+		List list = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.pos.add(-radius, -radius, -radius), this.pos.add(radius + 1, radius + 1, radius + 1)));
 		if(!list.isEmpty()){	
 			Iterator listItr = list.iterator();
 			while(listItr.hasNext()){
@@ -44,7 +44,7 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
 				if(this.customName != null){
 					blockName = customName;
 				}
-				player.addChatMessage(new TextComponentString(String.format(ChatBoxMain.instance.configStorage.formatCode, blockName, message, radius)));
+				player.sendMessage(new TextComponentString(String.format(ChatBoxMain.instance.configStorage.formatCode, blockName, message, radius)));
 			}
 			return true;
 		}
