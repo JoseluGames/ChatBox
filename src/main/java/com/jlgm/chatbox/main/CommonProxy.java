@@ -7,16 +7,22 @@ import com.jlgm.chatbox.lib.ChatBoxConfigStorage;
 import com.jlgm.chatbox.network.ChatBoxPacketHandler;
 import com.jlgm.chatbox.tileentity.ChatBoxTileEntity;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
+@Mod.EventBusSubscriber
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent preInitEvent){
@@ -30,13 +36,20 @@ public class CommonProxy {
 		
 		ChatBoxPacketHandler.registerMessage();
 		ChatBoxTileEntity.registerTileEntity();
-		ChatBoxBlock.mainRegistry(config);
+	}
+	
+	@SubscribeEvent
+	public static void registerBlocks(RegistryEvent.Register<Block> event){
+		ChatBoxBlock.registerBlocks(event);
+	}
+	
+	@SubscribeEvent
+	public static void registerItems(RegistryEvent.Register<Item> event){
+		ChatBoxBlock.registerItemBlocks(event);
 	}
 	
 	public void init(FMLInitializationEvent initEven){
-		ChatBoxBlock.registerBlock();
 		NetworkRegistry.INSTANCE.registerGuiHandler(ChatBoxMain.instance, new ChatBoxGuiHandler());
-		//GameRegistry.addRecipe(new ShapedOreRecipe(ChatBoxBlock.chatBlock_Block, "CIC", "IRI", "CIC", 'C', "cobblestone", 'R', "dustRedstone", 'I', "ingotIron"));
 		MinecraftForge.EVENT_BUS.register(new ChatBoxEventHandler());
 	}
 	

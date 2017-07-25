@@ -25,21 +25,21 @@ public class ChatBoxMain{
 	
 	@SidedProxy(clientSide = ChatBoxConstants.CLIENT_PROXY, serverSide = ChatBoxConstants.SERVER_PROXY)
 	public static CommonProxy proxy;
-	@Instance(ChatBoxConstants.MODID)
+	@Mod.Instance(ChatBoxConstants.MODID)
 	public static ChatBoxMain instance;
 	
-	@EventHandler
+	@Mod.EventHandler
 	public static void PreInit(FMLPreInitializationEvent preInitEvent){
 		configStorage = new ChatBoxConfigStorage();
 		proxy.preInit(preInitEvent);
 	}
 	
-	@EventHandler
+	@Mod.EventHandler
 	public static void Init(FMLInitializationEvent initEvent){
 		proxy.init(initEvent);
 	}
 	
-	@EventHandler
+	@Mod.EventHandler
 	public static void PostInit(FMLPostInitializationEvent postInitEvent){
 		proxy.postInit(postInitEvent);
 	}
