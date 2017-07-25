@@ -1,4 +1,4 @@
-tile.chatBox.name=Chat Box
+tile.chatbox.name=Chat Box
 
 container.chatbox=Chat Box
 container.chatbox.message=Message

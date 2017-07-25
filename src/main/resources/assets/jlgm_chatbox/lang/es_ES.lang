@@ -1,9 +1,9 @@
-tile.chatBox.name=Caja de Texto
+tile.chatbox.name=Caja Hablante
 
-container.chatbox=Caja de Texto
+container.chatbox=Caja Hablante
 container.chatbox.message=Mensaje
 container.chatbox.radius=Radio
 container.chatbox.nexttip=Siguiente consejo
 
-container.chatbox.tip1=Consejo: Puedes renombrar este bloque en un yunque como a los bloques de comandos!
-container.chatbox.tip2=Consejo: Para cambiar el formato de salida en el archivo de configuracion.
+container.chatbox.tip1=Consejo: ¡Puedes renombrar este bloque en un yunque como a los bloques de comandos!
+container.chatbox.tip2=Consejo: Puedes cambiar el formato de salida en el archivo de configuracion.

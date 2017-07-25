@@ -9,9 +9,9 @@
         }
     },
     "textures": {
-        "particle": "jlgm_chatbox:blocks/chatBox_side",
-        "0": "jlgm_chatbox:blocks/chatBox_side",
-        "1": "jlgm_chatbox:blocks/chatBox_top"
+        "particle": "jlgm_chatbox:blocks/chatbox_side",
+        "0": "jlgm_chatbox:blocks/chatbox_side",
+        "1": "jlgm_chatbox:blocks/chatbox_top"
     },
     "elements": [
         {
