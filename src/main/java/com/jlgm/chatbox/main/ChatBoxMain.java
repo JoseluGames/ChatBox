@@ -15,13 +15,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = ChatBoxConstants.MODID,
 	name = ChatBoxConstants.NAME,
 	version = ChatBoxConstants.VERSION,
-	acceptedMinecraftVersions = ChatBoxConstants.ACCEPTEDMINECRAFTVERSIONS)
+	acceptedMinecraftVersions = ChatBoxConstants.ACCEPTEDMINECRAFTVERSIONS,
+	updateJSON = ChatBoxConstants.UPDATEJSON)
 
 public class ChatBoxMain{
 	
 	public static ChatBoxConfigStorage configStorage;
-	public static ChatBoxVersionChecker versionChecker;
-	public static boolean haveWarnedVersionOutOfDate = false;
 	
 	@SidedProxy(clientSide = ChatBoxConstants.CLIENT_PROXY, serverSide = ChatBoxConstants.SERVER_PROXY)
 	public static CommonProxy proxy;

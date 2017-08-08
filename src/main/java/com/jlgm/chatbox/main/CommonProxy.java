@@ -2,15 +2,12 @@ package com.jlgm.chatbox.main;
 
 import com.jlgm.chatbox.block.ChatBoxBlock;
 import com.jlgm.chatbox.client.gui.ChatBoxGuiHandler;
-import com.jlgm.chatbox.event.ChatBoxEventHandler;
 import com.jlgm.chatbox.lib.ChatBoxConfigStorage;
 import com.jlgm.chatbox.network.ChatBoxPacketHandler;
 import com.jlgm.chatbox.tileentity.ChatBoxTileEntity;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,8 +16,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
@@ -50,7 +45,6 @@ public class CommonProxy {
 	
 	public void init(FMLInitializationEvent initEven){
 		NetworkRegistry.INSTANCE.registerGuiHandler(ChatBoxMain.instance, new ChatBoxGuiHandler());
-		MinecraftForge.EVENT_BUS.register(new ChatBoxEventHandler());
 	}
 	
 	public void postInit(FMLPostInitializationEvent postInitEvent){
