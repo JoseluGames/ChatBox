@@ -2,7 +2,6 @@ package com.jlgm.chatbox.main;
 
 import com.jlgm.chatbox.lib.ChatBoxConfigStorage;
 import com.jlgm.chatbox.lib.ChatBoxConstants;
-import com.jlgm.chatbox.lib.ChatBoxVersionChecker;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
