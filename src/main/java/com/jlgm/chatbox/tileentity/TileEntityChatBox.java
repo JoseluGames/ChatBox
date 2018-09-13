@@ -76,18 +76,12 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
     public void setRadius(int par1){
     	this.radius = par1;
     }
-    
-    /**
-     * Get the name of this object. For players this returns their username
-     */
+
     public String getName()
     {
         return this.hasCustomName() ? this.customName : "container.chatbox";
     }
-
-    /**
-     * Returns true if this thing is named
-     */
+    
     public boolean hasCustomName()
     {
         return this.customName != null && !this.customName.isEmpty();
@@ -108,7 +102,7 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
     public NBTTagCompound writeToNBT(NBTTagCompound tagCompound){
 		super.writeToNBT(tagCompound);
 		tagCompound.setString("Message", this.message);
-		tagCompound.setString("CustomName", this.customName);
+		tagCompound.setString("CustomName", this.getName());
 		tagCompound.setInteger("Radius", this.radius);
 		return tagCompound;
 	}
