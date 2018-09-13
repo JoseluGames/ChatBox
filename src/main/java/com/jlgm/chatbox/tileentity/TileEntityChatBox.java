@@ -30,7 +30,7 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
 	private boolean powered;
 	
 	public TileEntityChatBox(){
-		this.message = "Hello there!";
+		this.message = "Hello there! - General Kenobi!";
 		this.radius = 10;
 	}
 	
@@ -108,6 +108,7 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
     public NBTTagCompound writeToNBT(NBTTagCompound tagCompound){
 		super.writeToNBT(tagCompound);
 		tagCompound.setString("Message", this.message);
+		tagCompound.setString("CustomName", this.customName);
 		tagCompound.setInteger("Radius", this.radius);
 		return tagCompound;
 	}
@@ -116,6 +117,7 @@ public class TileEntityChatBox extends TileEntity implements IWorldNameable{
 	public void readFromNBT(NBTTagCompound tagCompound){
 		super.readFromNBT(tagCompound);
 		this.message = tagCompound.getString("Message");
+		this.customName = tagCompound.getString("CustomName");
 		this.radius = tagCompound.getInteger("Radius");
 	}
 	
